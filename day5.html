@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 Javascript (For Loops Continuation)</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        .container{
+            margin:auto;
+            width: 50%;
+            min-height: 300px;
+            padding:10px;
+            background-color: silver;
+        }
+        .form-input{
+            display:block;
+            margin:10px auto;
+            padding:10px;
+            font-size:20px;
+            font-family: 'open sans';
+            width:100%;
+        }
+        .form-input:hover{
+            border:none;
+            background-color: grey;
+        }
+        .form-input:focus{
+            background-color: black;
+            color:white;
+        }
+        .form-input[mark='michael']{
+            text-transform: uppercase;
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="username" class="form-input" placeholder="Username">
+        <input type="password" id="password" class="form-input" placeholder="Password">
+        <input type="button" value="Login" class="form-input" id="btnSubmit" mark='michael'>
+    </div>
+    <script>
+        var students = ['solomon', 'delight', 'ebere', 'genius', 'pinky'];
+        var generalPassword = 101010;
+        username = document.querySelector('#username');
+        password = document.querySelector('#password');
+        submitButton = document.querySelector('#btnSubmit');
+
+        submitButton.onclick = function() {
+            name = username.value.toLowerCase();
+            pass = password.value.toLowerCase();
+            if(students.includes(name)){
+                if (pass == generalPassword) {
+                    alert('Welcome student')
+                } else {
+                    alert('Wrong Password')
+                    while(pass != null){
+                        pass = prompt('You must enter the right password');
+                    }
+                    alert('God don save you');
+                }
+            }
+            else{
+                alert('Not student');
+            }
+        }
+        
+
+
+        // for (let i = 0; i < students.length; i++) {
+        //     console.log(students[i] + ' is a student in my class');
+        // }
+        students.forEach(person => {
+            // console.log(person + " is a student in my class with for each loop");
+        });
+
+        for(everyperson in students){
+            // console.log(students[everyperson] + " is a student in my class with for everyperson loop");
+        }
+
+    </script>
+</body>
+</html>

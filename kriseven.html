@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kris Even Game</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			font-family: raleway;
+		}
+		.container{
+			width: 80%;
+			background-color: rgba(0,0,0,.7);
+			min-height: 200px;
+			margin: 20px auto;
+			padding: 30px;
+			background-blend-mode: overlay;
+		}
+		.buttonholder{
+			display: flex;
+			justify-content: space-between;
+		}
+		.color-button{
+			padding: 20px;
+			width: 30%;
+			border:none;
+			color: white;
+			font-weight: bold;
+		}
+		.color-button:hover{
+			box-shadow: 2px 2px 4px silver;
+		}
+		.green{
+			background-color: green;
+		}
+		.violet{
+			background-color: violet;
+		}
+		.red{
+			background-color: red;
+		}
+		.buttom-container{
+			min-height: 200px;
+			background-color: #eee;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			display: none;
+		}
+		.slideup{
+			display: block;
+			animation: 1s slide-up;
+		}
+		.slidedown{
+			animation: 1s slide-down;
+		}
+		@keyframes slide-up{
+			0%{transform: translateY(200px);}
+			100%{transform: translateY(0px);}
+		}
+		@keyframes slide-down{
+			0%{transform: translateY(200px);}
+			100%{display: none;}
+		}
+		.overlay{
+			width: 100%;
+			background-color: rgba(8, 0, 0, 0.486);
+			height: 500px;
+			position: absolute;
+			top: 0;
+			display: none;
+		}
+
+		.btngr, .gr{
+			width: 20%;
+			height: 50px;
+			display: flex;
+			margin: 8px;
+			align-items: center;
+			background-color:green;
+			justify-content: center;
+			color: white;
+		}
+
+
+		.gr{
+			width: 70%;
+		}
+
+		.money{
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			margin: 20px 40px;
+		}
+
+		.contract{
+			width: 30%;
+		}
+		.figure{
+			width: 68%;
+			display: flex;
+			justify-content: space-around;
+
+		}
+		.one{
+			width: 22%;
+			padding: 3px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 2px;
+			border: 1px solid #d3d3d3;
+			transition: .6s ease all;
+			cursor: pointer;
+		}
+
+		.plusminus{
+			width: 15%;
+			margin: auto;
+			display: flex;
+		}
+
+		.two{
+			width: 32%;
+		}
+		.cancel{
+			width: 40%;
+			height: 50px;
+			padding: 2px;
+			margin: 8px;
+			text-align: center;
+			/* border: 2px solid red; */
+			background-color:gray;
+			align-items: center;
+		}
+
+		.grcover{
+			display: flex;
+			justify-content: space-between;
+		}
+		p{
+			text-align: center;
+			color: #a5a3a3;
+		}
+		.one:hover{
+			background-color: darkgrey;
+			color: whitesmoke;
+			font-weight: bold;
+		}
+		.active{
+			background-color: black;
+			color: yellow;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="buttonholder">
+			<button class="color-button green">Join Green</button>
+			<button class="color-button violet">Join Violet</button>
+			<button class="color-button red">Join Red</button>
+		</div>
+	</div>
+	<div class="overlay"></div>
+	<div class="buttom-container">
+		<div class="btngr">green</div>
+		<div class="money">
+			<div class="contract">contract <br> money</div>
+			<div class="figure">
+				<div class="one">50</div>
+				<div class="one">500</div>
+				<div class="one">5,000</div>
+				<div class="one">50,000</div>
+			</div>
+		</div>
+
+		<div class="money">
+			<div class="contract">Number</div>
+			<div class="figure">
+				<div class="one" id="num3">3</div>
+				<div class="one" id="num5">5</div>
+				<div class="one" id="num10">10</div>
+			</div>
+		</div>
+		<div class="plusminus">
+			<div class="one two" id="btnMinus">-</div>
+			<div class="one two" id="txtNumber">1</div>
+			<div class="one two" id="btnAdd">+</div>
+		</div>
+		<p>maximumdrawing</p>
+		<div class="grcover">
+			<div class="cancel">cancel</div>
+			<button class="btngr gr">Bet</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var btnGreen = document.querySelector('.green');
+		var btnViolet = document.querySelector('.violet');
+		var btnRed = document.querySelector('.red');
+		var bottomContainer = document.querySelector('.buttom-container');
+		var omahlay = document.querySelector('.overlay');
+		var btnMinus = document.querySelector('#btnMinus');
+		var txtNumber = document.querySelector('#txtNumber');
+		var btnAdd = document.querySelector('#btnAdd');
+		var moneyholder = document.getElementsByClassName('one');
+		var money = 0;
+		var multiplier = 1;
+
+		btnMinus.addEventListener('click', function(){
+			// var currentNum = Number(txtNumber.textContent);
+			// if (currentNum != 1) {
+			// 	currentNum -= 1;
+			// }
+			// txtNumber.textContent = currentNum;
+			// if(currentNum == 1){
+			// 	txtNumber.textContent = currentNum;
+			// }else{
+			// 	currentNum -= 1;
+			// 	txtNumber.textContent = currentNum;
+			// }
+			selection('-');
+		})
+
+		btnAdd.addEventListener('click', function (){
+			// var currentNum = Number(txtNumber.textContent);
+			// currentNum += 1;
+			// txtNumber.textContent = currentNum;
+			selection('+');
+		});
+
+		btnGreen.onclick = function () {
+			mySlideUp('darkgreen');
+			document.getElementsByClassName('btngr')[0].textContent = 'Green';
+		}
+
+		btnViolet.onclick = function () {
+			mySlideUp('darkviolet');
+			document.getElementsByClassName('btngr')[0].textContent = 'Violet';
+		}
+
+		btnRed.onclick = function () {
+			mySlideUp('maroon');
+			document.getElementsByClassName('btngr')[0].textContent = 'Red';
+		}
+
+		omahlay.onclick = function () {
+			bottomContainer.className = 'buttom-container';
+			omahlay.style.display = 'none';
+		}
+
+		function selection (argument) {
+			var currentNum = Number(txtNumber.textContent);
+			if (argument == '-'){
+				if (currentNum != 1) {
+					currentNum -= 1;
+				}
+			} else{
+				if (currentNum != 10) {
+					currentNum += 1;
+				}
+			}
+
+			if(currentNum == 3){
+				document.getElementById('num3').classList.add('active');
+			} else if(currentNum == 5){
+				document.getElementById('num5').classList.add('active');
+			} else if (currentNum == 10) {
+				document.getElementById('num10').classList.add('active');
+			} else{
+				document.getElementById('num3').classList.remove('active');
+				document.getElementById('num5').classList.remove('active');
+				document.getElementById('num10').classList.remove('active');
+			}
+			multiplier = currentNum;
+			txtNumber.textContent = currentNum;
+		}
+
+		function mySlideUp (color) {
+			bottomContainer.className += " slideup";
+			omahlay.style.display = 'block';
+			document.querySelector('.btngr').style.backgroundColor = color;
+			document.querySelector('.gr').style.backgroundColor = color;
+		}
+
+		function clearMoneyColor () {
+			moneyholder[0].classList.remove('active');
+			moneyholder[1].classList.remove('active');
+			moneyholder[2].classList.remove('active');
+			moneyholder[3].classList.remove('active');
+		}
+
+		moneyholder[0].onclick = function () {
+			money = 50;
+			clearMoneyColor();
+			moneyholder[0].classList.add('active');
+		}
+		moneyholder[1].onclick = function () {
+			money = 500;
+			clearMoneyColor();
+			moneyholder[1].classList.add('active');
+		}
+		moneyholder[2].onclick = function () {
+			money = 5000;
+			clearMoneyColor();
+			moneyholder[2].classList.add('active');
+		}
+		moneyholder[3].onclick = function () {
+			money = 50000;
+			clearMoneyColor();
+			moneyholder[3].classList.add('active');
+		}
+
+		document.querySelector('.gr').onclick = function () {
+			if (money == 0){
+				alert('No betting cash provided');
+			}
+			else{
+				current_color = document.getElementsByClassName('btngr')[0].textContent;
+				current_money = money * multiplier;
+				console.log(current_money);
+				console.log(current_color);
+			}
+		}
+
+
+
+
+
+
+	</script>
+</body>
+</html>

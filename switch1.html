@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Switch and Set Date</title>
+	<style type="text/css">
+		input, button{
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+	<input type="number" id="txtnum">
+	<input type="button" id="btnsubmit" value="Check">
+	<button id="btnshuffle">shuffle</button>
+<script type="text/javascript">
+	var date = new Date();
+	console.log('Correct Time: ', date);
+	hour = date.setHours(12, 20, 10, 005);
+	console.log(date);
+	myHour = date.getHours();
+
+	if (myHour <= 11) {
+		console.log('Good Morning');
+	} else if(myHour <= 16) {
+		console.log('Good Afternoon');
+	} else if(myHour <= 20) {
+		console.log('Good Evening');
+	}else {
+		console.log('Good Night');
+	}
+
+	switch (myHour) {
+		case 12:
+			console.log('. It is 12 Noon. Go for Prayers');
+			break;
+		case 9: 
+			console.log('. Time for breakfast');
+			break;
+		default:
+			console.log('. Have a nice day dear');
+			break;
+	}
+
+	var luckynumber = '';
+	var reshuffle = document.getElementById('btnshuffle');
+	var check = document.getElementById('btnsubmit');
+	var txt = document.getElementById('txtnum');
+
+	reshuffle.onclick = function () {
+		shuffle();
+	}
+
+	check.onclick = function () {
+		// switch (txt.value) {
+		// 	case luckynumber:
+		// 		alert('You are blowing cold');
+		// 		break;
+		// 	case luckynumber > txt.value:
+		// 		alert('You are blowing hot');
+		// 	default:
+		// 		alert('Congrats: ' + luckynumber);
+		// 		break;
+		// }
+
+		if (luckynumber < txt.value) {
+			alert('You are blowing hot');
+		} else if (luckynumber > txt.value) {
+			alert('You are blowing cold');
+		}else {
+			alert('Congrats: ' + luckynumber);
+		}
+	}
+	function shuffle () {
+		luckynumber = Math.round(Math.random()*601);
+		console.log(luckynumber);
+	}
+	shuffle();
+</script>
+</body>
+</html>

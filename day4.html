@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Functions, Objects, EventsListeners</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background-color: darkblue;
+			padding: 30px;
+			/* display: flex; */
+		}
+		.body{
+			height: 90vh;
+			display: flex;
+			/* background-color: rgba(33, 33, 199, 0.685); */
+		}
+		.body form{
+			background: linear-gradient(45deg, rgba(0, 0, 139, 0.13), rgba(33, 33, 199, 0.685));
+			height: 500px;
+			width: 30%;
+			margin: auto;
+			padding: 10px;
+			border-radius: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.container{
+			background-color: silver;
+		}
+		input{
+			padding: 15px;
+			width: 100%;
+			border: none;
+			margin-top: 20px;
+			border-radius: 10px;
+			background-color: rgba(255, 255, 255, 0.1);
+			border:1px solid white;
+			font-size: 2em;
+			color: white;
+			font-weight: bold;
+			font-family: raleway;
+			backdrop-filter: blur(10px);
+		}
+		input:focus{
+			outline: none;
+		}
+		.ball{
+			background-color: yellow;
+			height: 100px;
+			width: 100px;
+			border-radius: 50%;
+			right: 500px;
+			top: 85px;
+			position: absolute;
+		}
+		.input-button{
+			width: 21%;
+			font-size: 3em;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="body">
+		<div class="ball"></div>
+		<form action="">
+			<div>
+				<input type="number" name="" id="first_num">
+				<input type="number" name="" id="second_num">
+			</div>
+			<div style="display: flex; justify-content: space-between;">
+				<input type="button" value="+" id="btn+" class="input-button">
+				<input type="button" value="-" id="btn-" class="input-button">
+				<input type="button" value="x" id="btnx" class="input-button">
+				<input type="button" value="/" id="btn/" class="input-button">
+			</div>
+			<input type="text" disabled>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		// var a = 20;
+		// var b = 30;
+		function addition(a, b) { // Void Function doesn't return anything
+			console.log(a + b);
+			return a+b;
+		}
+		
+		function makeUp(word, word2) 
+		{
+			console.log(word.toUpperCase());
+			console.log(word2.toLowerCase());
+		}
+	</script>
+</body>
+
+</html>

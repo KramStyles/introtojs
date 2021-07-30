@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slideshow</title>
+	<link rel="stylesheet" type="text/css" href="../fontawesome-free/css/all.css">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.container{
+			height: 600px;
+			width: 80%;
+			padding: 15px;
+			font-family: montserrat;
+			margin: 50px auto;
+			box-shadow: 3px 3px 10px silver;
+		}
+		.container h1:hover{
+			color: #4acf50;
+		}
+		.img_container{
+			margin: 15px 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: relative;
+			height: 80%;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-image: url("file:///C:/Users/Dell/Desktop/Web/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_nature_wide.jpg");
+		}
+		img{
+			width: 100%;
+		}
+		.flex_container{
+			display: flex;
+			justify-content: center;
+		}
+		.small_box{
+			background-color: #ddd;
+			height: 20px;
+			width: 20px;
+			border-radius: 50%;
+			margin: 3px;
+			cursor: pointer;
+			transition: 1s ease all;
+		}
+		.small_box:hover{
+			background-color: grey;
+		}
+		.arrow_left, .arrow_right{
+			transition: 1s ease all;
+			padding: 25px;
+			color: white;
+			font-weight: bold;
+		}
+		.arrow_left:hover, .arrow_right:hover{
+			background-color: #00000050;
+		}
+		.top-text{
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			background-color: #00000080;
+			color: white;
+			padding: 10px;
+		}
+		.bottom-text{
+			bottom: 10px;
+			right: 10px;
+			position: absolute;
+			bottom: 10px;
+			background-color: #00000080;
+			color: white;
+			padding: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Slide Show</h1>
+		<div class="img_container" id="img_container">
+			<div class="top-text">1/4</div>
+			<div class="arrow_left" id="arrow_left"><i class="fa fa-chevron-left"></i></div>
+			<div class="arrow_right" id="arrow_right"><i class="fa fa-chevron-right"></i></div>
+			<div class="bottom-text">Mountain side</div>
+		</div>
+		<div class="flex_container">
+			<div class="small_box"></div>
+			<div class="small_box"></div>
+			<div class="small_box"></div>
+			<div class="small_box"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var mountain = "file:///C:/Users/Dell/Desktop/Web/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_nature_wide.jpg";
+		var snow = "file:///C:/Users/Dell/Desktop/Web/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_snow_wide.jpg";
+		var roadside = "file:///C:/Users/Dell/Desktop/Web/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_mountains_wide.jpg";
+		var sky = "file:///C:/Users/Dell/Desktop/Web/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_lights_wide.jpg";
+		var numb = 1;
+		var next = 1, prev = 4;
+
+		var slides = {
+			1: [mountain, 'mountain side'],
+			2: [snow, 'beautiful snow'],
+			3: [roadside, 'road trip'],
+			4: [sky, 'neon sky view']
+		}
+		arrow_left.onclick = function () {
+			if (numb != 1){
+				numb--;
+			}
+			else{
+				numb = 4;
+			}
+			img_container.style.background = "url("+slides[numb][0]+")";
+			img_container.style.backgroundSize = "cover";
+			img_container.style.backgroundRepeat = "no-repeat";
+			img_container.style.backgroundPosition = "center";
+		}
+		arrow_right.onclick = function () {
+			if (numb != 4){
+				numb++;
+			}
+			else{
+				numb = 1;
+			}
+			img_container.style.background = "url("+slides[numb][0]+")";
+			img_container.style.backgroundSize = "cover";
+			img_container.style.backgroundRepeat = "no-repeat";
+			img_container.style.backgroundPosition = "center";
+		}
+	</script>
+</body>
+</html>

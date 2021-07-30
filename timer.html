@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: seashell;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+        }
+        .time-box{
+            height: 150px;
+            width: 27%;
+            background-color: rebeccapurple;
+            box-shadow: -4px 2px 5px slategray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            font-size: 4.5em;
+            font-family: 'train one';
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="time-box">
+            <span id="spnTime">00:00:00</span>
+        </div>
+    </div>
+    <script>
+        var anime;
+        setInterval(() => {
+            anime = new Date();
+            var hours = anime.getHours();
+            var mins = anime.getMinutes();
+            if(anime.getSeconds() < 10) var secs = '0' + anime.getSeconds(); else var secs =  anime.getSeconds();
+            var time = hours + ':'+mins+":"+secs;
+            spnTime.textContent = time;
+        }, 1000);
+        
+    </script>
+</body>
+</html>

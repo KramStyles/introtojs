@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day One</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: lightgrey;
+            padding: 20px;
+        }
+        input, button{
+            width: 49%;
+            /* display: block; */
+            margin: 2px auto;
+            padding: 15px;
+            border: 1px solid dodgerblue;
+        }
+        button{
+            background-color: dodgerblue;
+            color: white;
+            width: 89%;
+            display: block;
+            margin: 5px auto;
+        }
+    </style>
+
+
+</head>
+<body>
+    <a href="google.com" id="link" class="mr kc">Go to google</a>
+    <div class="container">
+        <input type="text" id="txtFirst" placeholder="First Number">
+        <input type="text" id="txtSecond" placeholder="Second Number">
+        <button type="button" id="btnCompare"><b>Compare</b></button>
+    </div>
+    <script>
+        var first = document.getElementById('txtFirst');
+        var second = document.getElementById('txtSecond');
+        var btn = document.getElementById('btnCompare');
+        // var lnk = document.getElementById('link');
+        var lnk = document.querySelector("a.mr.kc#link");
+        btn.onclick = function () {
+            a = Number(first.value);
+            b = Number(second.value);
+            if (a < b){
+                alert(a +' is less than ' + b);
+            } else if (a == b) {
+                alert(String(a).concat(' is equals to ', b))
+            }
+            else{
+                alert(String(a).concat(' is greater than ', b))
+            }
+        }
+
+        lnk.onclick = function (e){
+            console.log(e);
+            e.preventDefault();
+        }
+
+    </script>
+</body>
+</html>

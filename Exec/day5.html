@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .ball{
+            height: 100px;
+            width: 100px;
+            background-color: chocolate;
+            border-radius: 50%;
+        }
+        .container{
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ball"></div>
+    </div>
+    <script>
+        width = screen.width;
+        var container = document.querySelector('.container');
+        var ball = document.querySelector('.ball');
+        var i = 0;
+        var j = width;
+        run = setInterval(() => {
+            if (i < width){
+                ball.style.transform = "translateX("+i+"px)";
+                i+=5;
+            } else{
+                clearInterval(run);
+                // console.log('hello')
+                // if (j > 0){
+                //     ball.style.transform = "translateX("+j+"px)";
+                //     j-=5;
+                //     console.log('heyyyy')
+                // }
+                
+            }
+
+        }, 5);
+    </script>
+</body>
+</html>

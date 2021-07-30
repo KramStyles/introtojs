@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Palindromes</title>
+    <style>
+        * {
+            margin: 0; 
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            border: solid 1px brown;
+            width: 90%;
+            display: block;
+            height: 20px;
+            padding: 15px;
+            margin: 10px auto;
+        }
+
+    </style>
+</head>
+<body>
+<input type="text" id="txtCheck" mark="michael" autofocus="true" />
+<script>
+    var txt = document.querySelector('input[mark="michael"]');
+    var arr = revarr = result = '';
+
+    function palindrome() {
+        word = txt.value; //Gets the word in the input field
+        arr = word.split(''); // Converts the word to an array
+        revarr = word.split('').reverse(); // Converts the word to an array and reverses it
+        result = true; // Sets our result to be true
+        for(i = 0; i < word.length; i++){ // Loops through each letter individually
+            if(arr[i] != revarr[i]){ // Condition that changes our result to false if the two arrays don't match
+                result = false;
+            /*
+                ['n', 'o', 'w']             ['a', 'p', 'a', 'p', 'a']
+                ['w', 'o', 'n']             ['a', 'p', 'a', 'p', 'a']
+            */
+            }
+        }
+        if (result) {
+            alert(word.toUpperCase() + ' is a palindrome. Congrats')
+        } else {
+            alert(word.toUpperCase() + ' is not a palindrome. Sorry')
+        }
+
+    }
+
+    txt.addEventListener('keypress', function (e) {
+        if (e.keyCode == 13) {
+            palindrome();
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+    <title>Multiples</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            background-color: coral;
+            font-family: montserrat;
+            font-size: 3.4em;
+            font-weight: bold;
+            padding: 25px;
+            color: cornsilk;
+        }
+
+        input {
+            padding: 15px;
+            border: none;
+            border-bottom: 4px double coral;
+            margin: 15px auto;
+            width: 90%;
+            display: block;
+            font-family: open sans;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .num {
+            width: 10%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: train one, cooper blacks, montserrdat, san-seridf, arial;
+            background-color: cornsilk;
+            border: 4px double coral;
+            color: coral;
+            margin: 5px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        MULTIPLES NUMBER GENERATOR
+    </div>
+    <input type="number" placeholder="Enter the number you want as a multiple" onkeyup="printMultiples()" name="Number Field" id="Nothing">
+    <div class="container" myname='michael'>
+        <!-- <div class="num">3</div> -->
+    </div>
+    <script>
+        var container = document.querySelector("div[myname='michael']")
+        var num_holder = document.querySelector('input[type="number"]');
+        function printMultiples() {
+            var holder = '';
+            multiple = num_holder.value;
+            for (i = 1; i <= 100; i++) {
+                // if (i % multiple == 0) {
+                //     // console.log("The multiple of " + multiple + " is: " + i);
+                //     holder +="<div class='num'>"+i+"</div>";
+                // }
+                num = i * multiple;
+                    holder +="<div class='num'>"+num+"</div>";
+            }
+            console.log(holder)
+            container.innerHTML = holder;
+        }
+
+        function f(name='Emmanuel') {
+            console.log('My name is ' + name.toUpperCase());
+        }
+        // var base = 20;
+        // var height = 40;
+
+        function areaOfTriangle(base = 20, height = 40) {
+            if(isNaN(base) == true){
+                console.log('Base needs to be a number');
+            } else{
+                area = 0.5 * base * height;
+                console.log('The area of the triangle is: ' + area + 'M2');
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

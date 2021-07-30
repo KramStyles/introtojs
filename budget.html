@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Budget Tracker</title>
+    <link rel="stylesheet" href="../fontawesome-free/css/all.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        img {
+            height: 60px;
+            width: 60px;
+        }
+
+        body {
+            background: gray;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            width: 100%;
+            font-family: montserrat;
+
+        }
+
+        .container {
+            background: silver;
+            width: 70%;
+            top: 40px;
+            left: 15%;
+            position: absolute;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .holder {
+            display: flex;
+            text-align: center;
+
+        }
+
+        .transactions {
+            width: 30%;
+            background: rgb(109, 88, 88);
+            height: 420px;
+            padding: 2em;
+            overflow: auto;
+        }
+
+        .input-section {
+            width: 70%;
+            background: rgb(46, 36, 36);
+            padding: 2em 0;
+
+        }
+
+        .input {
+            display: flex;
+            justify-content: center;
+            margin-top: 1em;
+        }
+
+        .top-img {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .top {
+            padding: 1em;
+        }
+
+        .top-img img {
+            border-radius: 50%;
+        }
+
+        .history button {
+            background: orangered;
+            color: white;
+            padding: .5em 1em;
+            border-radius: 7px;
+            border: none;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .top-img p {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        ul li {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            background: silver;
+            margin: 15px 3px;
+            padding: 1em;
+            border-radius: 10px;
+        }
+
+        .text-success {
+            text-align: left;
+        }
+
+        i {
+            cursor: pointer;
+        }
+
+        button {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        button:after {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -10%;
+            width: 100%;
+            height: 60%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale3d(7, 3, 2) rotate(135deg) translate(0, -150%);
+            transition: 0.6s all;
+        }
+
+        button:hover:after,
+        button:focus:after {
+            transform: scale3d(6, 2, 1) rotate(135deg) translate(0, 100%);
+        }
+
+
+
+        .calculation-section {
+            color: silver;
+        }
+
+        .available-balance {
+            font-weight: 100;
+            font-size: 60px;
+            margin: 20px 0;
+        }
+
+        .income button,
+        .expense button {
+            padding: .5em;
+            background: #218079;
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .expense button {
+            background: #a12967;
+            margin-bottom: 3em;
+        }
+
+        .add {
+            color: #218079;
+        }
+
+        .minus {
+            color: #a12967;
+        }
+
+        .form-group,
+        .input-group {
+            width: 15%;
+            padding: 1em .5em;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            margin: 0 3px;
+            color: gray;
+        }
+
+        .form-group:focus,
+        .input-group:focus,
+        select:focus {
+            box-shadow: 0 0 5px 3px #218079;
+        }
+
+        .input-group {
+            width: 25%;
+        }
+
+        select,
+        .tick {
+            padding: .4em;
+            text-align: center;
+            font-weight: bolder;
+            font-size: 20px;
+            color: grey;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .tick {
+            background: #218079;
+            color: white;
+            padding: .5em;
+        }
+
+        form span {
+            color: gray;
+            font-weight: 500;
+        }
+
+        .btnDel,
+        .btnSubmit {
+            padding: 5px;
+            outline: none;
+            border: none;
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="top">
+
+            <div class="top-img">
+                <img src="images/female.png" alt="Profile">
+                <p>Michael Jamie</p>
+            </div>
+
+            <div class="history">
+                <button>Transaction History</button>
+            </div>
+
+        </div>
+
+
+        <!------------------------------- MAIN BODY SECTION -------------------------->
+        <div class="holder">
+            <!-------------------------- DELETING SECTION --------------------->
+
+
+            <div class="transactions">
+                <h2>My Transaction</h4>
+                    <div id="transacts">
+                        <h2>Nothing for Now!</h2>
+                    </div>
+                </div>
+
+
+                <!------------------------ INPUT-SECTION ------------------------->
+
+
+                <div class="input-section">
+                    <div class="calculation-section">
+                        <h4 class="available-budget"> Available Budget in November 17<sup>th</sup> 2020 </h4>
+                        <h4 class="available-balance">
+                            +20,000.00
+                        </h4>
+
+                        <div class="income">
+                            Income:
+                            <button>+30,000.00</button>
+                        </div>
+
+                        <div class="expense">
+                            Expense:
+                            <button> -30,000.00 </button>
+                        </div>
+                    </div>
+
+                    <form method="post" action="">
+                        <span>INCOME-EXPENSE</span>
+
+                        <div class="input">
+                            <div>
+
+                                <label for="oprator"></label>
+                                <select class="custom-select add-type" name="" id="oprator">
+                                    <option value="income" class="add">+</option>
+                                    <option value="expenses" class="minus">-</option>
+                                </select>
+                            </div>
+
+                            <input type="text" name="" placeholder="Add Description" class="input-group"
+                            aria-label="Recipient's text" id="txtTitle">
+
+                            <input type="number" aria-describedby="helpId" placeholder="Amount" class="form-group"
+                            id="txtAmount">
+
+                            <button id="btnSubmit" class="btnSubmit"><i class="fa fa-check tick"></i></button>
+
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <script type="text/javascript" src="../jquery/js/jquery.min.js"></script>
+        <script type="text/javascript">
+            var btnSubmit = document.getElementById('btnSubmit');
+            var oprator = document.getElementById('oprator');
+            var amount = document.getElementById('txtAmount');
+            var title = document.getElementById('txtTitle');
+            var transacts = document.getElementById('transacts');
+            var transactions = [];
+            var btnTrash = document.getElementById('btnTrash');
+
+            btnSubmit.addEventListener('click', function (e) {
+                e.preventDefault();
+                transactions.push({
+                    'title': title.value,
+                    'amount': amount.value,
+                    'type': oprator.value
+                });
+                title.value = '';
+                amount.value = '';
+                showDash();
+
+            })
+
+            if(localStorage.transactions){
+                transactions = JSON.parse(localStorage.transactions);
+                showDash();
+            }
+
+            function showDash() {
+                var holder = '';
+                var textColor = '';
+                for (item in transactions) {
+                    console.log(transactions[item])
+                    if (transactions[item]['type'] == 'expenses') {
+                        textColor = 'minus';
+                    } else {
+                        textColor = 'add';
+                    }
+
+                    holder += "<ul><li><div class='text-success'><h4 class='" + textColor + "'>" + transactions[item]['title'] + "</h4><p>12<sup>th</sup> August</p><p>&#8358;" + transactions[item]['amount'] + "</p></div><div><button class='btnDel' id='btnTrash' data-trash='" + item + "'><i class='fa fa-trash-alt fa-2x text-success'></i></button></div></li></ul>";
+                }
+                transacts.innerHTML = holder;
+                localStorage.transactions = JSON.stringify(transactions);
+            }
+
+
+        $(document).on('click', ".btnDel", function (e) {
+            var trash = this.getAttribute('data-trash');
+            transactions.splice(trash, 1);
+            showDash();
+
+            // var trash = $(this).attr('data-trash');
+
+        });
+
+
+
+
+        //     student1 = 'francis';
+        //     student2 = 'maxwell';
+        //     student3 = 'praise';
+        //     student4 = 'tony';
+        //     student5 = 'alex';
+        //     student6 = 'harmony';
+        //     student7 = 'kingsley';
+
+            // students = ['francis', 'maxwell', 'student3', 007, 'praise', 'alex', 'harmony'];k
+            // array.forEach( function(element, index) {
+            //     console.log('Student is: ', element);
+            // });
+
+        //     students.push('vincent');
+        //     students.push('CJ')
+        //     console.log(students.length)
+
+        //     for (i=0; i<students.length; i++){
+        //       j = i + 1
+        //       console.log('My student number ' + j + ' is : ' + students[i]);
+        //   }
+
+
+            // for(i in students)
+                    // {
+                    //     console.log(students[i]);
+                    // }
+
+
+        //   students.pop();
+        //   students.pop();
+        //   console.log(students)
+
+        //   // OBJECTS 
+        //   joseph = {
+        //     'fullname': 'Joseph Myron',
+        //     'age': 15,
+        //     'fav_color': 'Red',
+        //     'programmer': true
+        // }
+        // joseph.age;
+        // joseph['age'];
+
+
+       //  transactions = [
+       //      {
+       //          'title': title,
+       //          'amount': amount,
+       //          'date': date
+       //      },
+       //      {
+       //          'title': title,
+       //          'amount': amount,
+       //          'date': date
+       //      },
+       //      {
+       //          'title': title,
+       //          'amount': amount,
+       //          'date': date
+       //      }
+       //  ]
+       // transactions[i]['title']
+
+       // transactions.remove()
+   </script>
+</body>
+
+</html>

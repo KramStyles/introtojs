@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Switch Case</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		input[type="range"]{
+			width: 80%;
+			display: block;
+			margin:30px auto;
+		}
+		.box{
+			height: 60px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 20px auto;
+			background-color: dodgerblue;
+			width: 5%;
+			font-family: 'open sans';
+			color: white;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<input type="range" id="age" max="10" value="0">
+	<div class="box">0</div>
+	<script type="text/javascript">
+		var age = document.getElementById('age');
+		var box = document.querySelector('.box');
+		age.onchange = function (){
+			box.textContent = age.value;
+			switch (Number(age.value)) {
+				case 10:
+					alert('A list of things about chidubem');
+					break;
+				case 7:
+					alert('He is very stubborn');
+					break;
+				case 4:
+					alert('He has a big head');
+					break;
+				case 1:
+					alert('I want to sleep');
+					break;
+				default:
+					alert('Lemme');
+					break;
+			}
+		}
+	</script>
+</body>
+</html>

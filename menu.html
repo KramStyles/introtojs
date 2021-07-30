@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Menu</title>
+	<link rel="stylesheet" type="text/css" href="../fontawesome-free/css/all.css">
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			font-family: poppins;	
+		}
+		button{
+			
+		}
+		.menu-container{
+			min-height: 40vh;
+			background-color: #ddd;
+			padding: 30px 10px;
+			display: flex;
+			transition: 0.5s ease all;
+		}
+		.menu-column{
+			width: 25%;
+			margin: 6px;
+		}
+		.menu-column h1{
+			font-family: raleway;
+			font-weight: 300;
+		}
+		.menus{
+			margin-top: 10px;
+
+		}
+		.menus a{
+			color: black;
+			text-decoration: none;
+			display: inline-block;
+			width: 100%;
+			transition: 0.5s ease all;
+			margin:1px 0;
+		}
+		.menus a:hover{
+			background-color: #888;
+		}
+		.fa-caret-down{
+			transition: 0.4s ease all;
+			padding: 10px;
+			display: inline-block;
+		}
+		.flip{
+			transform: rotateX(180deg);
+		}
+		.slide{
+			transform: translateY(-80vh);
+		}
+		.slide2{
+			transform: translateY(-375px);
+		}
+		.hel{
+			background-color: yellow;
+			min-height: 400px;
+			transition: 0.5s ease all;
+		}
+	</style>
+</head>
+<body>
+	<button><i class="fa fa-caret-down fa-2x"></i></button>
+
+	<div class="menu-container">
+		<div class="menu-column">
+			<h1>HTML and CSS</h1>
+			<div class="menus">
+<!-- 				<a href="">hello</a>
+	<a href="">hello</a> -->
+</div>
+</div>
+<div class="menu-column">
+	<h1>JavaScript</h1>
+	<div class="menus"></div>
+</div>
+<div class="menu-column">
+	<h1>Server Side</h1>
+	<div class="menus"></div>
+	<h1>XML</h1>
+	<div class="menus"></div>
+</div>
+<div class="menu-column">
+	<h1>Quizzes</h1>
+	<div class="menus"></div>
+</div>
+</div>
+
+<div class="hel">hello</div>
+<script type="text/javascript">
+	var first = ['HTML','CSS ','W3.CSS ','Bootstrap','How To','SVG'];
+	var second = ['HTML DOM','Javascript ','Jquery ','Angular JS','AJAX','W3.JS'];
+	var third = ['ASP','PHP'];
+	var fourth = ['XML','XSLT','XPath ','XML Scheme','AJAX','SVG'];
+	var quiz = ['HTML','CSS ','Javascript','Bootstrap','Jquery','PHP', 'SQL', 'XML'];
+
+	var menus = document.getElementsByClassName('menus');
+	function menu_looper (menu_array, pos) {
+		menu_array.forEach( function(a, b) {
+			menus[pos].innerHTML += "<a href='https://mysite.com/"+a+"examples'>"+a+" Examples</a>";
+		});
+	}
+
+	menu_looper(first, 0);
+	menu_looper(second, 1);
+	menu_looper(third, 2);
+	menu_looper(fourth, 3);
+	menu_looper(quiz, 4);
+
+	var menu_container = document.getElementsByClassName('menu-container')[0];
+	var btn = document.getElementsByTagName('button')[0];
+	var icon = document.getElementsByClassName('fa-caret-down')[0];
+	var page = document.getElementsByClassName('hel')[0];
+	btn.onclick = function () {
+		icon.classList.toggle('flip');
+		menu_container.classList.toggle('slide');
+		page.classList.toggle('slide2');
+	}
+
+	function showMenu () {
+		alert('hello') ;
+	}
+
+	function hideMenu () {
+		// body... 
+	}
+</script>
+</body>
+</html>

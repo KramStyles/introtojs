@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multiple Slider</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.container{
+			display: flex;
+			padding: 15px;
+			/*background-color: silver;*/
+			
+		}
+		.box{
+			width:25%;
+			margin: 20px;
+			background-color: silver;
+			min-height: 300px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: bold;
+			color: dodgerblue;
+			font-size: 3em;
+		}
+		#move{
+			animation: move .2s linear;
+		}
+
+		.hidden{
+			display: none;
+		}
+
+		@keyframes move {
+			0%{}
+			100%{transform: translateX(-100px);}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+	<script type="">
+		var boxes = document.getElementsByClassName('box');
+		var statements = ['hello', 'hi', 'a', 'b', 'c', 'd', 'e', 'f','g','h', 'i', 'j', 'k', 'l', 'm'];
+		var index0 = 0;
+		var index1 = 1;
+		var index2 = 2;
+		var index3 = 3;
+		setInterval( ()=>{
+			boxes[0].textContent = statements[index0++ % statements.length];
+			boxes[1].textContent = statements[index1++ % statements.length];
+			boxes[2].textContent = statements[index2++ % statements.length];
+			boxes[3].textContent = statements[index3++ % statements.length];
+		}, 3000)
+	</script>
+</body>
+</html>

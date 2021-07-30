@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM : Browser Object Model</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.container{
+			height: 100vh;
+			width: 100vw;
+			background-color: lightyellow;
+		}
+		.ball{
+			height: 75px;
+			width: 75px;
+			border-radius: 50%;
+			background-color: dodgerblue;
+		}
+		.buttons{
+			width: 50%;
+			position: absolute;
+			bottom: 10px;
+			margin: auto;
+			background-color: #666;
+			min-height: 50px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.buttons button{
+			width: 45%;
+			padding: 10px;
+			background-color: whitesmoke;
+			border:none;
+			box-shadow: 2px 3px 5px #fff;
+		}
+		.buttons button:active{
+			box-shadow: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="ball">
+			<h1></h1>
+			<h1></h1>
+		</div>
+		<div class="buttons">
+			<button>Start</button>
+			<button>Stop</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var sWidth = window.screen.width;
+		var sHeight = window.screen.height;
+		console.log(sWidth);
+		console.log(sHeight);
+		var ball = document.querySelector('.ball');
+		var wPos = 0;
+		var sPos = 0;
+		btnStart = document.getElementsByTagName('button')[0];
+		btnStop = document.getElementsByTagName('button')[1];
+
+		function start () {
+			if (wPos <= sWidth) {
+				wPos += 10;
+				ball.style.transform = 'translateX('+wPos+'px)';
+			} else if (wPos >= sWidth) {
+				sPos = 0;
+				if (sPos <= sWidth) {
+					sPos -= 10;
+					ball.style.transform = 'translateX('+sPos+'px)';
+				}
+			}
+		}
+
+		btnStop.onclick = function () {
+			navigator.geolocation.getCurrentPosition(showPos);
+		}
+
+		btnStart.onclick = function () {
+			var timer = setInterval(start, 10);	
+		}
+
+		function showPos(pos) {
+			document.getElementsByTagName('h1')[0].textContent = pos.coords.latitude;
+			document.getElementsByTagName('h1')[1].textContent = pos.coords.longitude;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Live Chat</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../fontawesome-free/css/all.css">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		.container{
+			background-image: linear-gradient(to bottom, yellow, goldenrod);
+			min-height: 80vh;
+			position: relative;
+			padding: 20px;
+			font-family: 'open sans';
+		}
+		.chatarea{
+			background-color: white;
+			border-radius: 13px;
+			width: 350px;
+			position: absolute;
+			right: 20px;
+
+		}
+		.hero{
+			display: flex;
+			padding: 20px;
+			border-bottom: 1px solid #666;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.chatarea{
+			background-color: #ccc;
+			overflow: auto;
+		}
+		.customer, .care{
+			clear: both;
+			padding: 5px;
+			margin:5px;
+			width: 80%;
+			background-color: white;
+			color: #666;
+			border-radius: 10px;
+			float: left;
+			animation: fadeLeft 1s;
+		}
+		.customer{
+			float: right;
+			background-color: yellow;
+			color: black;
+			animation: fadeRight 1s;
+		}
+		.messages div{
+			display: flex;
+			margin: 5px 0;
+		}
+
+		.messages textarea{
+			padding: 15px;
+			font-family: 'berlin sans fb';
+			width: 80%;
+		}
+		.messages button{
+			width: 20%;
+			padding: 15px;
+		}
+		.infosec{
+			display: block;
+			clear: both;
+			margin-left: 15px;
+			color: yellow;
+		}
+		.l-elli{
+			clear: both;
+			display: block;
+		}
+		.r-elli{
+			clear: both;
+			display: block;
+			text-align: right;
+		}
+		.l-elli, .r-elli{
+			animation: jumpy .85s linear infinite;
+			padding: 0px 10px;
+		}
+
+		.left{
+			clear: both;
+			float: left;
+		}
+		.right{
+			clear: both;
+			float: right;
+		}
+		.chat-holder{
+			height: 400px;
+		}
+		#btnSlide, .chat-holder{
+			transition: .6s ease all;
+		}
+		.open{
+			transform: rotate(405deg);
+			font-size: 150%;
+		}
+		.slideUP{
+			height: 0px;
+		}
+		.hide{
+			display: none;
+		}
+
+		@keyframes fadeLeft{
+			0%{
+				transform: translateX(-200px);
+			}
+			100%{
+				transform: translateX(0);
+			}
+		}
+		@keyframes fadeRight{
+			0%{
+				transform: translateX(200px);
+			}
+			100%{
+				transform: translateX(0);
+			}
+		}
+		@keyframes jumpy{
+			0%{
+				transform: translateY(-5px);
+				color: darkred;
+			}
+			25%{
+				transform: translateY(0px);
+				color: black;
+			}
+			50%{
+				transform: translateY(-5px);
+				color: darkred;
+			}
+			75%{
+				transform: translateY(0px);
+				color: black;
+			}
+			100%{
+				transform: translateY(-5px);
+				color: darkred;
+			}
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="chatarea">
+			<div class="hero">
+				<i class="fa fa-ellipsis-h"></i>
+				<p><b>Chat with Us!</b></p>
+				<div class="icons">
+					<i class="fa fa-times" id="btnSlide"></i>
+				</div>
+			</div>
+			<div class="chat-holder" id="chat_holder">
+				<div id="chats">
+				<p class="care">Thank you for choosing <strong style="color: gold">MTN</strong>. How may we help you?</p>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="messages">
+		<div>
+			<textarea id="customer_input" placeholder="Customer"></textarea> <button id="btnCustomer">Submit</button>
+		</div>
+		<div>
+			<textarea id="admin_input" placeholder="Customer Care | Admin"></textarea><button id="btnCare">Submit</button>
+		</div>
+    </div>
+    <script type="text/javascript">
+    	customer_input.onfocus = function () {
+    		msg = document.createElement('i');
+    		msg.className = 'fa fa-ellipsis-h fa-2x r-elli';
+    		msg.id = 'blinker';
+    		// msg.textContent = 'Hello';
+    		chats.appendChild(msg);
+    	}
+
+    	customer_input.onblur = function () {
+    		chats.removeChild(blinker);
+    	}
+    	admin_input.onfocus = function () {
+    		msg = document.createElement('i');
+    		msg.className = 'fa fa-ellipsis-h fa-2x l-elli';
+    		msg.id = 'admin_blinker';
+    		chats.appendChild(msg);
+    	}
+    	admin_input.onblur = function () {
+    		chats.removeChild(admin_blinker);
+    	}
+    	btnCustomer.addEventListener('click',function () {
+    		txt = customer_input.value;
+    		customer_input.value = '';
+    		msg = document.createElement('p');
+    		msg.className = 'customer';
+    		msg.innerHTML = txt;
+    		chats.appendChild(msg);
+    	})
+    	btnCare.addEventListener('click',function () {
+    		txt = admin_input.value;
+    		admin_input.value = '';
+    		msg = document.createElement('p');
+    		msg.className = 'care';
+    		msg.innerHTML = txt;
+    		chats.appendChild(msg);
+    	})
+    	btnSlide.onclick = function () {
+    		this.classList.toggle('open');
+    		chat_holder.classList.toggle('slideUP');
+    		chats.classList.toggle('hide');
+    	}
+  
+    </script>
+
+	</body>
+	</html>

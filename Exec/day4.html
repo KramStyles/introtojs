@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Loop</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            font-family: montserrat;
+        }
+
+        .box {
+            width: 10%;
+            background-color: chocolate;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid silver;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <button ondblclick="printBox()">Click to run</button>
+    </div>
+    <script>
+        var i = 1;
+        var container = document.querySelector('#container');
+        var holder = ''
+        function printBox() {
+            // do{
+            //     console.log(i)
+            //     i++;
+            // }while(i < 100)
+
+            while (i < 100) {
+                // debugger;
+                holder += '<div class="box">' + i + '</div>';
+                i++;
+            }
+            container.innerHTML = holder;
+        }
+
+    </script>
+</body>
+
+</html>

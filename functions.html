@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	var x = 10;
+	function printt () {
+		console.log('Good morning');
+		 x = 12;
+		console.log(x)
+	}
+	
+	function add (kc=2) {
+		x += kc;
+		console.log(x)
+		return x;
+	}
+
+	function info (fullname, age, compx, phone_number, rel_status) {
+		return ('My name is '.concat(fullname, ' and i am ', age, ' years old. I am ', compx, ' in complexion. I am happily ', rel_status, ' but this is my number: ', phone_number));
+	}
+
+	var y = function (a, b) {
+		return a*b;
+	}
+
+	function y (a,b) {
+		return a*b;
+	}
+
+	function palidrome(word='empty'){
+		word = word.replaceAll(' ', '');
+		reverse_word = word.split('').reverse().join('');
+		if (word == reverse_word) {
+			console.log(word + ': is a palindrome')
+		} else {
+			console.log(word + ': is not a palindrome')
+		}
+
+	}
+</script>
+</body>
+</html>

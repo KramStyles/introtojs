@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Day 3 Javascript</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		.header {
+			padding: 80px;
+			background-color: black;
+			color: white;
+			text-align: center;
+			font-size: 3em;
+			font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		.container {
+			width: 85%;
+			margin: auto;
+		}
+
+		.container textarea,
+		.container button {
+			width: 100%;
+			padding: 10px;
+			margin: 10px;
+		}
+
+		.container input {
+			width: 48%;
+			padding: 10px;
+			margin: 10px 5px;
+		}
+
+		/* .container button{
+			
+		} */
+	</style>
+</head>
+
+<body>
+	<div class="header" id="header">
+		<p id="headerText">My Header</p>
+	</div>
+	<div class="container">
+		<textarea id="description" rows="10"></textarea>
+		<input type="text" placeholder="Background Color" id="txtBackground">
+		<input type="color" placeholder="Text Color" id='txtFontColor'>
+		<button id="btnChange">Apply Changes</button>
+	</div>
+
+	<script>
+		var header = document.getElementById('header');
+		var headerText = document.getElementById('headerText');
+		var desc = document.getElementById('description');
+		var background = document.getElementById('txtBackground');
+		var font = document.getElementById('txtFontColor');
+		var btnChange = document.getElementById('btnChange');
+
+		btnChange.onclick = function () {
+			if (desc.value.length < 50) {
+				headerText.textContent = desc.value;
+				header.style.backgroundColor = background.value;
+				header.style.color = font.value;
+			}
+			else if (desc.value.length == 50) {
+				headerText.textContent = desc.value.toUpperCase();
+				header.style.backgroundColor = background.value;
+				header.style.color = font.value;
+			}
+			else {
+				headerText.innerHTML = '<small>Description is too Long. Please reduce...</small>';
+			}
+		}
+
+		if (favcolor == 'blue') {
+			console.log('buy the laptop')
+		} else if (favcolor == 'lightblue') {
+			console.log('let me buy the lightblue one')
+		} else if (favcolor == 'skyblue') {
+			console.log('let me try the skyblue')
+		} else {
+			console.log('sorry i want only blue')
+		}
+
+	</script>
+</body>
+
+</html>

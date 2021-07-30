@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #header{
+            background-color: grey;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size:50px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+            padding: 40px;
+        }
+        .btn-container{
+            display: flex;
+        }
+        button{
+            padding:20px;
+            font-variant-caps:all-small-caps;
+            border: none;
+            width: 100%;
+            color: white;
+            font-size: 32px;
+        }
+        button:focus{
+            border: none;
+        }
+        #btnRed{
+            background-color: darkred;
+        }
+        #btnGreen{
+            background-color: darkgreen;
+        }
+        #btnOrange{
+            background-color: darkorange;
+        }
+        .organize{
+            padding: 30px;
+        }
+        #inputresult{
+            display: block;
+            width: 80%;
+            margin: auto;
+            border-color: blue;
+            padding: 23px;
+        }
+        #changecolor button{
+            width: 100%;
+            background-color: grey;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">Welcome to javascript</div>
+    <div class="btn-container">
+        <button id="btnRed" onclick='redClicked()'>Dark Red</button>
+        <button  id="btnGreen" onclick='greenClicked()'>Dark Green</button>
+        <button  id="btnOrange" onclick='orangeClicked()'>Dark Orange</button>
+    </div>
+    <div class="organize">
+        <textarea id="inputresult"></textarea>
+    </div>
+    <div>
+        <button id="changecolor" onclick="changeMe()">change color</button>
+    </div>
+    <script src="myscripts/script.js"></script>
+</body>
+</html>

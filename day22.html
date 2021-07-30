@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Day 22</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+	.my_container{
+		display: flex;
+		height: 400px;
+		width: 80%;
+		background-color: black;
+		align-items: flex-end;
+		justify-content: space-between;
+		padding: 20px;
+		margin: auto;
+	}
+	button{
+		width: 15%;
+		padding: 10px;
+		height: 30px;
+	}
+	.adv-img{
+		width: 45%;
+		padding-top: 5px;
+		margin: auto;
+		display: flex;
+		justify-content: center;
+	}
+	@media screen and (max-width:  650px){
+		.adv-img2{
+			display: none;
+		}
+		.adv-img{
+			width: 90%;
+		}
+	}
+</style>
+</head>
+<body>
+
+	<p style="text-align: center; font-size:12px">Advert Placement</p>
+	<div class="adv-img">
+		<img src="https://pacesetterfrontier.com/wp-content/uploads/2021/07/IMG-20210702-WA0003.jpg" style="width:100%"/>
+		<img src="https://pacesetterfrontier.com/wp-content/uploads/2021/07/Screenshot_20210628-180052.png" style="width:100%" class="adv-img2" />
+	</div>
+
+	<div id="my_container" class="my_container">
+		<button onclick="changeBlue()">Blue</button>
+		<button ondblclick="changeRed()">Red</button>
+		<button onmouseover="changeYellow()">Yellow</button>
+	</div>
+	<script type="text/javascript">
+		var cont = document.getElementById('my_container');
+
+		function changeBlue () {
+			cont.style.backgroundColor = 'dodgerblue';
+		}
+		function changeRed () {
+			cont.style.backgroundColor = 'maroon';
+		}
+		function changeYellow () {
+			cont.style.backgroundColor = 'gold';
+		}
+	</script>
+</body>
+</html>

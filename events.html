@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events and Handles</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            height: 100vh;
+        }
+        .action-box{
+            height: 500px;
+            width: 40%;
+            padding: 10px;
+            margin: auto;
+            box-shadow: 3px 3px 15px silver;
+            display: flex;
+            flex-flow: wrap column;
+            justify-content: space-between;
+        }
+        #words{
+            padding: 20px;
+            width: 100%;
+            background-color: #66666644;
+            border: none;
+        }
+        #text-holder{
+            padding: 10px;
+            font-size: 25px;
+            font-family: "rollade ballado";
+            text-align: center;
+            border: 2px dotted #66666644;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="action-box">
+            <input type="text" id="words">
+            <div id="text-holder">...</div>
+        </div>
+    </div>
+    
+    <script>
+        var text_holder = document.getElementById('text-holder');
+        words.oninput = function () {
+            var sentence = words.value.trim()
+            if (sentence == '') {
+                text_holder.textContent = '...';
+            } else{
+                text_holder.textContent = sentence;
+            } 
+        }
+    </script>
+</body>
+</html>

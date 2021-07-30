@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dates</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.container{
+			background-color: silver;
+			color: white;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			min-height: 250px;
+		}
+		.greenbox{
+			padding: 30px;
+			font-family: 'open sans';
+			display: flex;
+			justify-content: center;
+			background-color: darkgreen;
+			min-width: 150px;
+		}
+		.greenbox span{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="greenbox">Hours: <span id="year"></span></div>
+		<div class="greenbox">Minutes: <span id="month"></span></div>
+		<div class="greenbox">Seconds: <span id="day"></span></div>
+	</div>
+	<div class="container">
+		<div class="greenbox">Day: <span id="cday"></span></div>
+		<div class="greenbox">Hours: <span id="chours"></span></div>
+		<div class="greenbox">Minutes: <span id="cmins"></span></div>
+		<div class="greenbox">Seconds: <span id="csecs"></span></div>
+	</div>
+	<script type="">
+		var hour = document.getElementById('year');
+		var mins = document.getElementById('month');
+		var secs = document.getElementById('day');
+
+		var cday = document.getElementById('cday');
+		var chours = document.getElementById('chours');
+		var cmins = document.getElementById('cmins');
+		var csecs = document.getElementById('csecs');
+
+		function countdown(){
+			var fixedDate = new Date("Oct 6, 2020 15:00:00").getTime();
+			currentTime = new Date().getTime();
+			timeLeft = fixedDate - currentTime;
+			dayLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+			hoursLeft = Math.floor(timeLeft % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+			minsLeft = Math.floor(timeLeft % (1000 * 60 * 60) / (1000 * 60));
+			secsLeft = Math.floor(timeLeft % (1000 * 60) / (1000));
+
+			cday.textContent = dayLeft;
+			chours.textContent = hoursLeft;
+			cmins.textContent = minsLeft;
+			csecs.textContent = secsLeft;
+		}
+
+		function sayHello(){
+			myday = new Date();
+			hour.textContent = myday.getHours();
+			mins.textContent = myday.getMinutes();
+			secs.textContent = myday.getSeconds();
+		}
+		
+		 setInterval(sayHello,1000);
+		 setInterval(countdown, 1000);
+		// setTimeout(sayHello,5000);
+	</script>
+</body>
+</html>

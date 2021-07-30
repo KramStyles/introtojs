@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events and Handles</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            height: 100vh;
+        }
+        .action-box{
+            height: 500px;
+            width: 40%;
+            padding: 10px;
+            margin: auto;
+            box-shadow: 3px 3px 15px silver;
+            display: flex;
+            flex-flow: wrap column;
+            justify-content: space-between;
+        }
+        input[type="text"], input[type="button"]{
+            padding: 20px;
+            width: 100%;
+            background-color: #dddddd44;
+            border: none;
+            font-size: 1.5em;
+            font-family: "poppins";
+        }
+        input[type="button"]{
+            width: 23.5%;
+            font-size: 1.5em;
+            font-family: "poppins";
+            cursor: pointer;
+            transition: 0.4s ease all;
+        }
+        input[type="button"]:hover{
+            transform: scale(0.8);
+            box-shadow: 2px 3px 5px silver;
+        }
+        .active{
+            transform: scale(0.8);
+            box-shadow: 2px 3px 5px silver;
+            background-color: indigo !important;
+            color: white !important;
+        }
+        #text-holder{
+            padding: 5px;
+            font-size: 25px;
+            font-family: "train one";
+            text-align: center;
+            border: 2px dotted #66666644;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="action-box">
+            <input type="text" id="num1" value="0">
+            <input type="text" id="num2" value="0">
+            <div style="display: flex; justify-content: space-between;">
+                <input type="button" value="+" id="btnPlus" class="active">
+                <input type="button" value="-" id="btnMinus">
+                <input type="button" value="/" id="btnDiv">
+                <input type="button" value="*" id="btnMul">
+            </div>
+            <div id="text-holder">...</div>
+        </div>
+    </div>
+    
+    <script>
+        var text_holder = document.getElementById('text-holder');
+        var sign = '+'; // Default calculation is addition
+        function runCalc() { // Function for running calculation
+            var Num1 = num1.value.trim(); // holds the number from the first input
+            var Num2 = num2.value.trim(); // holds the number from the second input
+            var msg = '';
+            if (isNaN(Num1) || isNaN(Num2)) { // checks if both are numbers or strings
+                msg = "Check your inputs! Numbers alone";
+            } else {
+                Num1 = Number(Num1); // if both are real numbers we convert
+                Num2 = Number(Num2); // them to int or floats before calculation
+                if (sign == '+')msg = Num1 + Num2; else if (sign == '-')msg = Num1 - Num2; else if (sign == '/')msg = Num1 / Num2; else msg = Num1 * Num2;
+                /*
+                    one line code for checking with arithmetic sign have been chosen
+                    i put all the conditions in one straight line
+                */
+            }
+            text_holder.textContent = msg.toFixed(2); // Makes sure the answers are always in 2 decimal places.
+            
+        }
+        function clearActive (element) { // function for adding color to the signs depending on which sign was chosen. It takes out active with is a class of bg-purple before finding the element been clicked and assigning that active class to it
+            btnPlus.classList.remove('active');
+            btnMinus.classList.remove('active');
+            btnDiv.classList.remove('active');
+            btnMul.classList.remove('active');
+            
+            element.classList.add('active');
+            sign = element.value; // changes the calculation to the chosen arithmetic sign
+
+            runCalc();
+
+        }
+        num1.oninput = function () {
+            runCalc();
+        }
+        num2.oninput = function () {
+            runCalc();
+        }
+        btnPlus.onclick = function () {
+            clearActive(this);
+        }
+        btnMul.onclick = function () {
+            clearActive(this);
+        }
+        btnDiv.onclick = function () {
+            clearActive(this);
+        }
+        btnMinus.onclick = function () {
+            clearActive(this);
+        }
+    </script>
+</body>
+</html>

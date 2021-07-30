@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../fontawesome-free/css/all.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e3e3e3;
+            font-family: Poppins;
+        }
+
+        form {
+            width: 75%;
+            min-height: 120px;
+            padding: 30px;
+            background-color: white;
+            margin: 50px auto;
+        }
+
+        p {
+            font-weight: bold;
+            color: #7FD323;
+        }
+
+        .big, .small {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 2px solid #e3e3e3;
+        }
+
+        .big {
+            width: 100%;
+            padding-left: 4em;
+            -webkit-transition: 1s ease all;
+            -moz-transition: 1s ease all;
+            -ms-transition: 1s ease all;
+            -o-transition: 1s ease all;
+            transition: 1s ease all;
+        }
+
+        .holder {
+            position: relative;
+        }
+
+        .holder .fall {
+            color: #7FD323;
+            display: inline-block;
+            padding: 10px;
+            border-right: 2px solid #e3e3e3;
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            /*background-color: red;*/
+        }
+
+        form ::placeholder {
+            font-weight: bold;
+            color: #7FD323;
+        }
+
+        .big:hover {
+            border-color: #7FD323;
+        }
+
+        input[type='submit'] {
+            width: 100%;
+            background-color: #7FD323;
+            border: none;
+            font-weight: bold;
+            color: white;
+        }
+
+        .right {
+            border-right: none;
+            border-left: 2px solid #e3e3e3;
+            position: absolute;
+            right: 10px !important;
+            display: inline-block;
+            padding: 10px;
+            top: 15px;
+            cursor: pointer;
+        }
+
+        .right:hover {
+            color: #7FD323;
+        }
+        #searchArea{
+            font-weight: normal;
+            padding:10px;
+            width:90%;
+            text-align: justify;
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <p>Account</p>
+    <div class="holder">
+        <input type="text" class="big" placeholder="Username" id="username">
+        <i class="fa fa-user fall"></i>
+    </div>
+    <div class="holder">
+        <input type="text" class="big" placeholder="Email Address" id="email">
+        <i class="fa fa-envelope fall"></i>
+    </div>
+    <div class="holder">
+        <input type="password" class="big" placeholder="Enter Password" id="passwd">
+        <i class="fa fa-key fall"></i>
+    </div>
+    <div class="holder">
+        <input type="password" class="big" placeholder="Confirm Password" id="confirm">
+        <i class="fa fa-lock fall"></i>
+        <i class="far fa-eye right"></i>
+    </div>
+    <input type="submit" value="Register User" class="big" id="btnSubmit" mar="mick">
+</form>
+
+<p id="searchArea">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eligendi minima nam neque unde? Aliquam autem
+    commodi dolore, laborum maiores minus natus neque obcaecati quo soluta sunt tenetur vitae, voluptas!
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eligendi minima nam neque unde? Aliquam autem
+commodi dolore, laborum maiores minus natus neque obcaecati quo soluta sunt tenetur vitae, voluptas!Lorem ipsum dolor
+sit amet, consectetur adipisicing elit. <i>Asperiores eligendi minima nam neque unde? Aliquam autem commodi dolore, laborum
+        maiores minus natus neque obcaecati quo soluta sunt tenetur vitae, voluptas!Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Asperiores eligendi minima nam neque unde? Aliquam autem commodi dolore, laborum maiores minus natus
+        neque obcaecati quo soluta sunt tenetur vitae,</i> voluptas!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+Asperiores eligendi minima nam neque unde? Aliquam autem commodi dolore, laborum maiores minus natus neque obcaecati quo
+soluta sunt tenetur vitae, voluptas!</p>
+<form action="">
+    <p>Search</p>
+    <div class="holder">
+        <input type="text" class="big" placeholder="Find" id="txtFind">
+        <i class="fa fa-pen fall"></i>
+    </div>
+    <div class="holder">
+        <input type="text" class="big" placeholder="Replace" id="txtReplace">
+        <i class="fa fa-tasks fall"></i>
+    </div>
+    <input type="submit" value="Find" class="big" id="btnFind" mar="mick">
+    <input type="submit" value="Replace" class="big" id="btnReplace" mar="mick">
+</form>
+<button id="newbtn">New button</button>
+
+<script>
+    var username = document.getElementById('username');
+    var email = document.getElementById('email');
+    var passwd = document.getElementById('passwd');
+    var confirm = document.getElementById('confirm');
+    var btn = document.querySelector('input[type="submit"]');
+    var eye = document.querySelector('.right');
+    var isPasswordVisible = 'No';
+
+    btn.onclick = function (kc) {
+        kc.preventDefault();
+        user = username.value.trim();
+        mail = email.value.trim();
+        pass = passwd.value.trim();
+        con = confirm.value.trim();
+
+        if (user == '' || mail == '' || pass == '' || con == '') {
+            alert('All fields must be filled');
+        } else if (pass != con) {
+            alert('Passwords must match')
+        } else {
+            alert('Registration Successful')
+        }
+    };
+
+    eye.onclick = function () {
+        if (isPasswordVisible == 'No') {
+            confirm.type = 'text';
+            this.className = 'far fa-eye-slash right';
+            isPasswordVisible = 'Yes';
+        }
+        else {
+            confirm.type = 'password';
+            this.className = 'far fa-eye right';
+            isPasswordVisible = 'No';
+        }
+    }
+
+//    CODE FOR FIND AND REPLACE
+    var btnReplace = document.getElementById('btnReplace');
+    var btnFind= document.getElementById('btnFind');
+    var txtReplace = document.getElementById('txtReplace');
+    var txtFind = document.getElementById('txtFind');
+    var searchArea = document.getElementById('searchArea');
+
+    btnReplace.onclick = function (e) {
+        e.preventDefault();
+        rep = txtReplace.value.trim();
+        fnd = txtFind.value.trim();
+        if (rep == '' || fnd == ''){
+            alert('Fill everything')
+        }else{
+            var mysearch = searchArea.textContent;
+            result = mysearch.replace(fnd,rep);
+            searchArea.textContent = result;
+        }
+
+    }
+
+    btnFind.onclick = function (e) {
+        e.preventDefault();
+        rep = txtReplace.value.trim();
+        fnd = txtFind.value.trim();
+        if (fnd == ''){
+            alert('Fill everything')
+        }else{
+            var mysearch = searchArea.textContent;
+            result = mysearch.replace(fnd,"<mark>"+fnd+"</mark>");
+            searchArea.innerHTML = result;
+        }
+    };
+
+    document.getElementById('newbtn').onclick = function () {
+        var holder = '';
+        for(i = 0; i<=100; i++){
+            holder += '<p>'+i+'</p>';
+        }
+        searchArea.innerHTML = holder;
+
+    }
+
+
+</script>
+</body>
+</html>

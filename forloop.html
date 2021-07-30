@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loops</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.container{
+			display: flex;
+			flex-wrap: wrap;
+			margin-left: 10px;
+		}
+		.box{
+			width: 9.5%;
+			border: 1px solid grey;
+			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center; 
+		}
+		input{
+			padding: 10px;
+			width: 70%;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<input type="number" id="number_of_box">
+	<div class="container">
+		
+	</div>
+	<script type="text/javascript">
+		var container = document.querySelector('.container');
+		var holder = '';
+		var number_of_box = document.getElementById('number_of_box');
+
+		number_of_box.onkeyup = function () {
+			container.innerHTML = '';
+			holder = '';
+			createBoxes(number_of_box.value);
+		}
+
+		function createBoxes (harmony) {
+			if (harmony <= 200) {
+				for(grace = 1; grace <= harmony; grace++){
+					holder += '<div class="box">' + grace + '</div>';
+				}
+				container.innerHTML = holder;
+			} else {
+				alert('Number too high');
+			}
+		}
+	</script>
+</body>
+</html>

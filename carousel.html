@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Carousel</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		@import url('../fontawesome-free/css/all.css');
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.container{
+			min-height: 55vh;
+			width: 80%;
+			margin: 20px auto;
+			background-image: url('file:///C:/Users/Michael%20Jamie/Desktop/New%20Folder/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_nature_wide.jpg');
+			background-size: cover;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: relative;
+		}
+		.slidebutton{
+			cursor: pointer;
+			color: white;
+			height: auto;
+			transition: .8s ease all;
+			padding: 20px;
+		}
+		.slidebutton:hover{
+			background-color: #666666cc;
+		}
+		.slidebutton p{
+			font-weight: bold;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			letter-spacing: 0.5em;
+		}
+		#slideinfo{
+			margin: 10px;
+			text-align:center;
+			text-transform: uppercase;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="slidebutton" id="btnLeft">
+			<i class="fa fa-angle-left fa-2x"></i>
+			<p><span>1</span>/<span>4</span></p>
+		</div>
+		<div class="slidebutton" id="btnRight">
+			<i class="fa fa-caret-right fa-2x"></i>
+		</div>
+	</div>
+	<p id="slideinfo">Information about picture</p>
+
+	<script type="text/javascript">
+		var container = document.getElementsByClassName('container')[0];
+		var btnLeft = document.getElementById('btnLeft');
+		var btnRight = document.getElementById('btnRight');
+		var current = document.getElementsByTagName('span')[0];
+		var total = document.getElementsByTagName('span')[1];
+
+		var pictures = ["file:///C:/Users/Michael%20Jamie/Desktop/New%20Folder/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_nature_wide.jpg", "file:///C:/Users/Michael%20Jamie/Desktop/New%20Folder/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_snow_wide.jpg", "file:///C:/Users/Michael%20Jamie/Desktop/New%20Folder/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_snow_wide.jpg", "file:///C:/Users/Michael%20Jamie/Desktop/New%20Folder/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_mountains_wide.jpg", "file:///C:/Users/Michael%20Jamie/Desktop/New%20Folder/W3Schools%20Offline%20Latest%202018%20[Clone%20by%20Md%20Maruf%20Adnan%20Sami]/howto/img_mountains_wide.jpg"]
+
+		var index = 0;
+		setInterval(()=>{
+			container.style.backgroundImage = "url("+pictures[index++ % pictures.length]+")";
+			total.textContent = pictures.length;
+			// current.textContent = index;
+		}, 5000)
+
+		btnRight.onclick = function () {
+			index ++;
+			console.log(index);
+			container.style.backgroundImage = "url("+pictures[index % pictures.length]+")";
+		}
+
+		btnLeft.onclick = function () {
+			index --;
+			console.log(index);
+			container.style.backgroundImage = "url("+pictures[index % pictures.length]+")";
+		}
+	</script>
+</body>
+</html>

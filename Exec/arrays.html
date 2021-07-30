@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../fontawesome-free/css/all.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .nav{
+            display: flex;
+            background-color: #4caf50;
+        }
+        .nav a{
+            display: inline-block;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-family: montserrat, poor richard;
+            text-decoration: none;
+            transition: .4s ease all;
+            width: 10%;
+            text-align: center;
+        }
+        .nav a:hover{
+            background-color: black;
+        }
+        .blank{
+            width: 40px;
+            height: 100%;
+            background-color: #666;
+            display: inline-block;
+        }
+    </style>
+    <title>Arrays</title>
+</head>
+<body>
+    <div class="nav"></div>
+    
+    <script>
+        var nav = document.querySelector('.nav');
+        var students = ['Victor', 'Michael', 'Kosi', 'Anthony', 'Andrew', 'Kenisce', 'Chimdi'];
+        var menu = ["<i class='fa fa-home'></i>", 'HTML', 'CSS', 'JAVASCRIPT', 'SQL', 'PHP', 'BOOTSTRAP', 'HOW TO', 'JQUERY', 'ANGULAR JS', "<span class='blank'></span>",'MORE', 'REFERENCES', 'EXAMPLES', "<i class='fa fa-globe'></i>", "<i class='fa fa-search'></i>"];
+        
+        menu.forEach(function (items) {
+            nav.innerHTML += "<a href=''>"+items+"</a>";
+        })
+    </script>
+</body>
+</html>

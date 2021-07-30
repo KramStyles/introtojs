@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Introduction to Javascript</title>
+	<link rel="stylesheet" type="text/css" href="css/newstyle.css">
+	<link rel="icon" type="text/css" href="images/atta.svg">
+	<style type="text/css">
+		.container{
+			min-height: 20vh;
+			width: 80%;
+			margin: 100px auto;
+			border: 4px double #666;
+			border-radius: 10px;
+			box-shadow: 3px 5px 13px black;
+			display: flex;
+			justify-content: space-between;
+			padding: 15px;
+			align-items: center;
+		}
+		button{
+			padding: 15px;
+			/*width: 100%;*/
+		}
+		/*#choco{
+			background-color: darkred;
+		}
+		#crim{
+			background-color: orangered;
+			}*/
+		/*#hello{
+			color: red;
+		}
+		#hi{
+			background-color: darkorange;	
+			}*/
+			.changeToCrim{
+
+			}
+			#txtColor, #btnColor, button{
+				width: 100%;
+				padding: 10px;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <img src="images/atta.svg"> -->
+		<div class="container" id="container">
+
+			<div style="display: flex; align-items: center;">
+				<img src="images/female.png">
+				<button id="choco" onclick="changeToCrim()">Chocolate</button>
+			</div>
+			<div>
+				<button id="crim" onclick="changeToChoco()">Crimson</button>
+			</div>
+		</div> 
+		<div class="container" style="display: block;">
+			<div>
+				<input type="text" id="txtColor" placeholder="Enter Any Colour">
+			</div>
+			<div id="something">
+				<input type="button" id="btnColor" value="Click to Change Color">
+				<button id="btn2">Click to change color 2</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+	</html>
+
+
+

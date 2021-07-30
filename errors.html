@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Errors</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.error-holder{
+			background-color: tomato;
+			color: whitesmoke;
+			padding: 10px;
+			width: 40%;
+			margin:10px auto;
+			border-radius: 15px;
+			font-weight: bold;
+			font-family: raleway;
+			text-align: center;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="error-holder">
+	</div>
+	<button id="try1">Click</button>
+	<script type="text/javascript">
+		btn1 = document.getElementById('try1');
+		our_error = document.querySelector('.error-holder');
+
+		btn1.onclick = function (){
+			try {
+				aAlert('hello');
+			} catch(myerror) {
+				// statements
+				our_error.textContent = myerror;
+				our_error.style.display = 'block';
+				console.log(myerror);
+
+			} finally {
+				console.log('We tried a code');
+			}
+		}
+	</script>
+</body>
+</html>

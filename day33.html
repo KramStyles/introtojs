@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: silver;
+            min-height: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .box{
+            width: 18.5%;
+            height: 50px;
+            background-color: grey;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            font-size: 20px;
+            margin: 5px;
+        }
+        .container.trouble
+    </style>
+</head>
+<body>
+    <div class="container" id="he"></div>
+
+<script type="text/javascript">
+    var cont = 'document';
+    var numb = prompt("Enter a number");
+    if (Number(numb) <= 400) 
+    {
+        createBoxes();
+    } 
+    else if(Number(numb) <= 500) 
+    {   
+        var run = confirm('Your number is close to the limit. Do you still want to run?');
+        if(run == true) {
+            createBoxes();
+        } else{
+            alert('Maybe next time, try a number lower than 400 just to be safe!');
+            window.top.location = window.top.location;
+        }
+    }
+    else
+    {
+        alert('Your number is too large. Choose a number less than 500 when you refresh the page!')
+        // window.top.location = window.top.location;
+        let students = ['chinonso', 'eunice', 'ada', 'jennifer', 'jane'];
+        let passwords = ['1234', '4545', '0900', '5400', 'jane'];
+        let username = prompt('Enter your username');
+        if(students.includes(username)){
+            alert('hello. you are welcome');
+            // let us ask the person to provid the password. when the password is provided,
+            // we check if it matches with the password of the person in the system
+        } else{
+            alert('sorry we do not know you!');
+        }
+
+    }
+
+    function createBoxes () {
+        let cont = document.querySelector('.container');
+        for(i = 1; i <= Number(numb); i++) {
+            cont.innerHTML += "<div class='box'>"+i+"</div>";
+        }
+    }
+    
+
+
+</script>
+</body>
+</html>

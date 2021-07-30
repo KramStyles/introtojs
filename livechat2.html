@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Livechat from Livechat.com</title>
+	<link rel="stylesheet" type="text/css" href="../fontawesome-free/css/all.css">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.ball{
+			position: fixed;
+			bottom: 20px;
+			right: 10px;
+			height: 78px;
+			width: 78px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 10px;
+			background: radial-gradient(darkgoldenrod, gold, yellow);
+			/*color: white;*/
+			box-shadow: 3px 3px 10px darkgoldenrod;
+			cursor: pointer;
+			transition: 0.1s ease all;
+		}
+
+		.box{
+			position: absolute;
+			bottom: 20px;
+			width: 0;
+			background-color: #F6F6F7;
+			border-radius: 6px;
+			right: 20px;
+			transition: 0.4s ease all;
+			/*transform: scale(0);*/
+			height: 0px;
+			overflow: hidden;
+		}
+		.box-head{
+			height: 10%;
+			background-color: white;
+			border:1px solid whitesmoke;
+			display: flex;
+			justify-content: space-between;
+			padding: 15px;
+		}
+		.box-head, .box{
+			border-top-left-radius: 25px;
+			border-top-right-radius: 25px;
+		}
+		.fa{
+			cursor: pointer;
+		}
+		.goDown{
+			transition: 0.2s ease all;
+			transform: translateY(150px);
+		}
+		.riseUp{
+			transition: 0.4s ease all;
+			-webkit-transform: revert;
+			-moz-transform: revert;
+			-ms-transform: revert;
+			-o-transform: revert;
+			transform: revert;
+		}
+		.growUp{
+			transition: 0.2s ease all;
+			height: 70vh;
+			width: 25%;
+			overflow: auto;
+		}
+		.shrinkDown{
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box-head">
+			<i class="fa fa-ellipsis-h"></i>
+			<b>Chat with us!</b>
+			<i class="fa fa-minus"></i>
+		</div>
+	</div>
+	<div class="ball"><i class="fa fa-atom fa-2x fa-spin"></i></div>
+
+	<script>
+		var box = document.querySelector('.box');
+		var ball = document.querySelector('.ball');
+		var minimize = document.querySelector('.fa.fa-minus');
+		ball.onclick = function () {
+			ball.classList.add('goDown');
+			box.classList.add('growUp');
+		}
+		minimize.onclick = function () {
+			ball.classList.remove('goDown');
+			box.classList.remove('growUp');
+		}
+
+		
+	</script>
+</body>
+</html>

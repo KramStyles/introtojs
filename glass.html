@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Glassmorphism Login Form</title>
+  <link rel="stylesheet" type="text/css" href="https://demo.plantpot.works/assets/css/normalize.css">
+  <link rel="stylesheet" href="https://use.typekit.net/opg3wle.css">
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      background-image: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
+      font-family: futura-pt, sans-serif;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .box {
+      position: relative;
+    }
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 999;
+      width: 100%;
+      max-width: 300px;
+      padding: 30px 20px;
+      border: solid .5px #ffffff65;
+      border-radius: 10px;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, .1),
+        -4px -4px 10px rgba(0, 0, 0, .1);
+      background-color: rgba(255, 255, 255, .1);
+      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(15px);
+    }
+
+    .ic-account {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .1);
+      background-image: url(ic_account.svg);
+      background-position: center;
+      background-size: 40px;
+      background-repeat: no-repeat;
+      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(15px);
+    }
+
+    .login-form-input {
+      outline: none;
+      width: 100%;
+      margin: 10px auto;
+      padding: 15px 20px;
+      border: 1px solid #fff;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, .1);
+      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(15px);
+    }
+
+    .login-form-input::placeholder {
+      color: #fff;
+    }
+
+    .login-form-btn {
+      width: 100%;
+      height: 50px;
+      margin: 20px auto 10px;
+      padding: 15px;
+      border: none;
+      border-radius: 25px;
+      background-color: #fff;
+      color: #3d3935;
+      font-size: 1.25rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .text {
+      text-align: center;
+      font-size: 14px;
+      color: #FFF;
+      margin: 0;
+      padding: 0;
+    }
+
+    .text a {
+      color: #FFF;
+    }
+
+    .login-form-btn:hover,
+    .text a:hover {
+      opacity: .8;
+    }
+
+    .circle-01 {
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      z-index: 1;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-image: linear-gradient(45deg, #ffd800, #ff5520);
+    }
+
+    .circle-02 {
+      position: absolute;
+      left: -40px;
+      bottom: -40px;
+      z-index: 1;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-image: linear-gradient(45deg, #0cbcf2, #750cf2);
+    }
+
+    .ic-holder {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .ic-holder div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      color: white;
+      font-weight: bold;
+    }
+
+    .ic-holder input {
+      text-align: center;
+      font-weight: bold;
+
+    }
+
+    .ic-holder div,
+    .ic-holder input {
+      border: 1px solid #ffffff80;
+      box-shadow: 1px 1px 14px #00000030;
+    }
+
+    .tries {
+      position: absolute;
+      margin-top: 100px;
+      font-size: 4em;
+      font-family: train one;
+      color: white;
+      font-weight: bold;
+      top: 0;
+    }
+
+    @media screen and (max-width: 480px) {
+      #container {
+        height: auto;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <p class="tries" id="txtTries">6</p>
+    <div class="box">
+      <div class="form-box">
+        <div class="ic-holder">
+          <div class="ic-account">*</div>
+          <div class="ic-account">*</div>
+          <div class="ic-account">*</div>
+          <div class="ic-account">*</div>`
+        </div>
+        <form id="login-form" name="login-form" action="#" method="post">
+          <div class="ic-holder">
+            <input class="login-form-input" type="text" id="inp1" maxlength="1">
+            <input class="login-form-input" type="text" id="inp2" maxlength="1">
+            <input class="login-form-input" type="text" id="inp3" maxlength="1">
+            <input class="login-form-input" type="text" id="inp4" maxlength="1">
+          </div>
+          <button class="login-form-btn" type="submit" id="btnCheck">Check</button>
+      </div>
+      <div class="circle-01"></div>
+      <div class="circle-02"></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var code = [];
+    var guessed = [];
+    var tries = 6;
+    var buttons = [inp1, inp2, inp3, inp4];
+    function g() {
+      let dig = Number((Math.random() * 9).toFixed());
+      while (code.includes(dig)) {
+        dig = Number((Math.random() * 9).toFixed());
+      }
+      code.push(dig);
+    }
+    for (i = 0; i < 4; i++) {
+      g();
+    }
+    inp1.onkeyup = function (e) {
+      if (e.keyCode == 8) {
+
+      } else {
+        inp2.focus();
+        inp2.select();
+      }
+    }
+    inp2.onkeyup = function (e) {
+      if (e.keyCode == 8) {
+        inp1.focus();
+        inp1.select();
+      } else {
+        inp3.focus();
+        inp3.select();
+      }
+    }
+    inp3.onkeyup = function (e) {
+      if (e.keyCode == 8) {
+        inp2.focus();
+        inp2.select();
+      } else {
+        inp4.focus();
+        inp4.select();
+      }
+    }
+    inp4.onkeyup = function (e) {
+      if (e.keyCode == 8) {
+        inp3.focus();
+        inp3.select();
+      }
+    }
+
+    btnCheck.onclick = function (e) {
+      guessed = [];
+      sleep = 0;
+      e.preventDefault();
+      if (tries > 0) {
+        let inputs = [inp1, inp2, inp3, inp4];
+        for (i in inputs) {
+          console.log(inputs[i].value.trim());
+          if (guessed.includes(inputs[i].value.trim()) || isNaN(inputs[i].value.trim())) {
+            alert('Only input different numbers');
+          } else {
+            guessed.push(inputs[i].value.trim());
+            sleep++;
+          }
+        }
+
+        if (sleep == 4) {
+          if (guessed.includes('')) {
+            alert('Hello, make sure all spaces are filled!')
+          }
+          else {
+            tries--;
+            txtTries.textContent = tries;
+            for (i in guessed) {
+              if (code[i] == guessed[i]) {
+                buttons[i].style.backgroundColor = "#00ff0050";
+                // alert('Congratulations! You guessed right. Play again');
+                // tries = 6;
+                // code = [];
+                // for (i = 0; i < 4; i++) {
+                //   g();
+                // }
+              }
+              else if (code.includes(Number(guessed[i]))) {
+
+                buttons[i].style.backgroundColor = "#ffff0050";
+              }
+
+              else {
+                console.log(false);
+                buttons[i].style.backgroundColor = "#ff000040";
+              }
+            }
+          }
+        }
+      } else {
+        alert('Sorry. Game over!')
+      }
+
+    }
+/*
+                  Check existing numbers when we click btnCheck
+                  check
+                  */
+  </script>
+</body>
+
+</html>
